@@ -15,7 +15,7 @@
 		<property name="socketServerMsgRequestHandler" ref="socketServerMsgRequestHandler"/>
 	</bean>
 
-	<bean id="socketServer" class="com.web.netty.SocketServer" destroy-method="close">
+	<bean id="socketServer" class="com.web.netty.SocketServer" destroy-method="close" init-method="init">
 		<property name="childChannelHandler" ref="childChannelHandler"/>
 	</bean>
 
