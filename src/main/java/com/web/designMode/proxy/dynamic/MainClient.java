@@ -10,7 +10,7 @@ public class MainClient {
     public static void main(String[] args) {
 
         ProxyInterface proxyInterface = (ProxyInterface) Proxy.newProxyInstance(ProxyImpl.class.getClassLoader(),
-                ProxyImpl.class.getInterfaces(), new ProxyHandler(new ProxyImpl()));
+                ProxyHandler.class.getInterfaces(), new ProxyHandler(new ProxyImpl()));
         System.out.println(proxyInterface.doSometing());
 
         System.out.println(" ------------------------------------------------    ");
