@@ -5,9 +5,6 @@ import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.zookeeper.CreateMode;
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
-
 /**
  * @author qushiwen on 2017-09-19.
  */
