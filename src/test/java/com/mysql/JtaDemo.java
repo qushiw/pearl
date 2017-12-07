@@ -22,8 +22,8 @@ public class JtaDemo {
 
 
         try {
-            MysqlXADataSource mysqlXADataSource1 = XaDemo.getDataSource(url1, "qsfs", "123456");
-            MysqlXADataSource mysqlXADataSource2 = XaDemo.getDataSource(url2, "qsfs", "123456");
+            MysqlXADataSource mysqlXADataSource1 = XaDemo.getDataSource(url1, "root", "123456");
+            MysqlXADataSource mysqlXADataSource2 = XaDemo.getDataSource(url2, "root", "123456");
 
             XAConnection xaConnection = mysqlXADataSource1.getXAConnection();
             XAResource xaResource = xaConnection.getXAResource();
@@ -40,11 +40,11 @@ public class JtaDemo {
             Xid xid1 = new MyXid(100, new byte[0x11], new byte[0x12]);
 
             xaResource.start(xid, XAResource.TMNOFLAGS);
-            statement.execute("insert into user('id','name') value('1','qsfs')");
+            statement.execute("insert into user(id,name) value('2','qsfs')");
             xaResource.end(xid, XAResource.TMSUCCESS);
 
             xaResource1.start(xid1, XAResource.TMNOFLAGS);
-            statement1.execute("insert into user('id','name') value('1','qsfs')");
+            statement1.execute("insert into user(id,name) value('3','qsfs')");
             xaResource1.end(xid1, XAResource.TMSUCCESS);
 
             int ret = xaResource.prepare(xid);
@@ -55,6 +55,8 @@ public class JtaDemo {
                 xaResource.commit(xid1, false);
             }
         } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
 
         }
     }

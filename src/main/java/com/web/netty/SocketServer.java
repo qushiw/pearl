@@ -29,7 +29,7 @@ public class SocketServer {
                     .option(ChannelOption.SO_BACKLOG, 1024)
                     .childHandler(childChannelHandler);
             channel = serverBootstrap.bind(8088).sync().channel();
-        } catch (Exception e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
             eventLoopGroup.shutdownGracefully();

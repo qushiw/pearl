@@ -14,21 +14,29 @@ public class ByteBufTest {
 
     public static void main(String[] args) {
 
-//        ByteBuf byteBuf = Unpooled.buffer(100);
+//        ByteBuf byteBuf = Unpooled.buffer(1024);
 //
-//        byteBuf.writeByte(1);
-//        byteBuf.writeByte(2);
-//        byteBuf.writeByte(3);
+//        byte[] data = new byte[1024];
+//        data[0] = 1;
+//        byteBuf.writeBytes(data);
 //
-//        System.out.println(byteBuf.readableBytes());
-//        System.out.println(byteBuf.readByte());
-//        System.out.println(byteBuf.readableBytes());
-//        System.out.println(byteBuf.readByte());
+//        ByteBuf dupBuf = byteBuf.copy();
+//
+//        byte[] yuandata = new byte[1024];
+//        dupBuf.readBytes(yuandata);
+//
+//        dupBuf.release();
+//        System.out.println(dupBuf);
+//
+//        System.out.println(yuandata[0]);
 
 
 
+        String a = "asdasd";
 
-        System.out.println(1543 & 255);
+        String b = "asdasd";
+
+        System.out.println(a.hashCode() + ":" + b.hashCode());
 
     }
 }

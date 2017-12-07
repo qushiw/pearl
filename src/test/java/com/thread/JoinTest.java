@@ -17,7 +17,7 @@ public class JoinTest {
         try {
             Thread t1 = new Thread(new Task());
             t1.start();
-            Thread.currentThread().join();
+            t1.join();
         } finally {
 
         }
@@ -32,6 +32,11 @@ public class JoinTest {
         public void run() {
 
             for (int i=0; i<10; i++) {
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 System.out.println("i" + i);
             }
 
