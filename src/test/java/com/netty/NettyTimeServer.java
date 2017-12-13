@@ -36,7 +36,7 @@ public class NettyTimeServer {
                     .option(ChannelOption.SO_BACKLOG, 1024)
                     .childHandler(new ChildChannelHandler());
             ChannelFuture channelFuture = serverBootstrap.bind(port).sync();
-            channelFuture.channel().closeFuture().sync();
+
 //            channelFuture.addListener(new ChannelFutureListener() {
 //                @Override
 //                public void operationComplete(ChannelFuture channelFuture) throws Exception {
@@ -58,9 +58,11 @@ public class NettyTimeServer {
             //配置属性
 //            socketChannel.config().setAllocator( ByteBufAllocator4Cds.getBufallocator() );
 
-            socketChannel.pipeline().addLast("decoder", new LineBasedFrameDecoder(1024));
+            ChannelPipeline channelPipeline = socketChannel.pipeline();
+
+            channelPipeline.addLast("decoder", new LineBasedFrameDecoder(1024));
 //            socketChannel.pipeline().addLast("encoder", new MySQLEncoder(ByteBufAllocator4Cds.isDirectbuffer()));
-            socketChannel.pipeline().addLast(new TimeServerHandler());
+            channelPipeline.addLast(new TimeServerHandler());
         }
     }
 

@@ -4,13 +4,16 @@ package com.thread;
  * Created by jrqushiwen on 2017-10-22.
  */
 public class OrderThread {
+    static Integer index = 0;
+    static Object object = new Object();
 
-    private static Object object = new Object();
+
 
     public static void main(String[] args) {
-        Thread t1 = new Thread(new Test(0, "A"));
-        Thread t2 = new Thread(new Test(1, "B"));
-        Thread t3 = new Thread(new Test(2, "C"));
+
+        Thread t1 = new Thread(new PrintTask(0, "A"));
+        Thread t2 = new Thread(new PrintTask(1, "B"));
+        Thread t3 = new Thread(new PrintTask(2, "C"));
 
 
         t1.start();
@@ -19,25 +22,33 @@ public class OrderThread {
     }
 
 
-    private static Integer num = 0;
 
-    private static class Test implements Runnable {
 
-        private Integer index;
-        private String message;
 
-        public Test(Integer index, String message){
-            this.index = index;
-            this.message = message;
+    private static class PrintTask implements Runnable {
+
+        private Integer order;
+        private String value;
+
+        public PrintTask(Integer order, String value) {
+            this.order = order;
+            this.value = value;
         }
 
         @Override
         public void run() {
-            synchronized (object) {
-                while (true) {
-                    if (num % 3 == index) {
-                        System.out.println("message:" + message);
-                        num ++;
+            while (true) {
+                synchronized (object) {
+                    if (index % 3 == order) {
+
+                        try {
+                            Thread.sleep(3000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+                        System.out.println("value" + value);
+                        index ++ ;
                         object.notifyAll();
                     } else {
                         try {
@@ -50,10 +61,5 @@ public class OrderThread {
             }
 
         }
-
-
     }
-
-
-
 }

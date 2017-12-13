@@ -1,8 +1,16 @@
 package com.jdk.io;
 
+
 import java.io.*;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketException;
+import java.net.SocketOptions;
+import java.nio.ByteBuffer;
+import java.nio.charset.Charset;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.SortedMap;
 
 /**
  * @author qushiwen
@@ -17,15 +25,31 @@ public class SyncSocketClient {
     public SyncSocketClient(){
         try {
             socket = new Socket("127.0.0.1", 8080);
+            socket.setTrafficClass(SocketOptions.IP_TOS);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        new Thread(new Task()).start();
-        SyncSocketClient syncSocketClient = new SyncSocketClient();
-        syncSocketClient.sendMessage();
+
+        ByteBuffer byteBuffer1 = ByteBuffer.allocate(1024);//非直接缓冲区
+        byteBuffer1.asReadOnlyBuffer();
+        ByteBuffer byteBuffer2 =  ByteBuffer.allocateDirect(1024);//直接缓冲区
+
+//        System.out.println("byteBuffer1 = " + byteBuffer1.asReadOnlyBuffer() + "byteBuffer2 = " +byteBuffer2.isDirect());
+
+//        Charset charset = Charset.forName("UTF-8");
+//        System.out.println("name = " + charset.name());
+
+
+        System.out.println(1 << 2);
+
+
+//        new Thread(new Task()).start();
+//        SyncSocketClient syncSocketClient = new SyncSocketClient();
+//        syncSocketClient.sendMessage();
     }
 
     private static PrintWriter getWrite(Socket socket) throws IOException {

@@ -63,8 +63,14 @@ public class TaskThreadGroup extends ThreadGroup {
             isClose = true;
             notifyAll();
         }
+
+        System.out.println("activeCount()" + activeCount());
         Thread[] threads = new Thread[activeCount()];
         int count = enumerate(threads);
+
+        System.out.println("-----" + threads.length);
+        System.out.println("-----" + count);
+
         for (int i=0; i<count; i++) {
             try {
                 threads[i].join();
@@ -122,7 +128,45 @@ public class TaskThreadGroup extends ThreadGroup {
         for (int i=0; i<numTask; i++) {
             taskThreadGroup.executeTask(createTask(i));
         }
+
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         taskThreadGroup.join();
+//
+
+
+//        ThreadGroup threadGroup = new ThreadGroup("threadGroup-1");
+//        Thread t1 = new Thread(threadGroup, new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    Thread.sleep(50000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+//
+//        Thread t2 = new Thread(threadGroup, new Runnable() {
+//            @Override
+//            public void run() {
+//                try {
+//                    Thread.sleep(50000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+//
+//
+//        t1.start();
+//        t2.start();
+//
+//        System.out.println(threadGroup.activeCount());
     }
 
 }
