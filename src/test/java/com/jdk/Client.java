@@ -1,9 +1,14 @@
 package com.jdk;
 
-import java.io.IOException;
-import java.util.*;
-import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 
+import org.springframework.cglib.proxy.Enhancer;
+import org.springframework.cglib.proxy.MethodInterceptor;
+import org.springframework.cglib.proxy.MethodProxy;
+
+import java.lang.ref.SoftReference;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
 *
@@ -13,38 +18,25 @@ import java.util.concurrent.atomic.AtomicIntegerFieldUpdater;
 **/
 public class Client {
 
+    public Client(){
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException, IllegalAccessException, InstantiationException {
-//        BAclass bAclass = new BAclass();
-//        ABClass abClass = bAclass.getAbClass();
-//        abClass.setName("ceshi");
-//        abClass.cannel();
-//        Iterator<ABClass> iterator = bAclass.cancelSet.iterator();
-//        while (iterator.hasNext()) {
-//            System.out.println(iterator.next().getName());
-//        }
+    }
 
-//        Test test = new Test();
-//        test.set(13);
+    public static void main(String[] args) throws Throwable {
+
+
+        while (true) {
+//            Enhancer enhancer = new Enhancer();
+//            enhancer.setSuperclass(A.class);
+//            enhancer.setUseCache(false);
+//            enhancer.setCallback(new MethodInterceptor() {
+//                @Override
+//                public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+//                    return methodProxy.invokeSuper(o, objects);
+//                }
+//            });
 //
-//        System.out.println(test.addAndGet(11));
-
-        TreeMap treeMap = new TreeMap(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return o1 - o2;
-            }
-        });
-
-        treeMap.put(5, "123");
-        treeMap.put(2, "123");
-        treeMap.put(4, "123");
-
-        Iterator<Map.Entry<Integer, String>> iterator =  treeMap.entrySet().iterator();
-
-        while (iterator.hasNext()) {
-            Map.Entry<Integer, String> entry = iterator.next();
-            System.out.println(entry.getKey());
+//            enhancer.create();
         }
 
 
@@ -52,34 +44,17 @@ public class Client {
 
 
 
+    private static class A{
 
-
-    public static class Test {
-        private volatile int a;
-
-        AtomicIntegerFieldUpdater<Test> atomicIntegerFieldUpdater;
-
-        public Test(){
-            atomicIntegerFieldUpdater = AtomicIntegerFieldUpdater.newUpdater(Test.class, "a");
-
+        @Override
+        protected void finalize() throws Throwable {
+            super.finalize();
         }
 
-        public void set(int num) {
-            atomicIntegerFieldUpdater.set(this, num);
-        }
+        public A(){
 
-
-        public int addAndGet(int num){
-            return atomicIntegerFieldUpdater.addAndGet(this, num);
-        }
-
-        public int getA() {
-            return a;
         }
     }
-
-
-
 
 
 }

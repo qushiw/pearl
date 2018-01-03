@@ -189,6 +189,12 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>7.0</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.apache.tomcat</groupId>
       <artifactId>tomcat-coyote</artifactId>
       <version>7.0.57</version>
@@ -254,6 +260,13 @@
       <artifactId>netty-codec</artifactId>
       <version>4.1.0.Final</version>
       <scope>test</scope>
+    </dependency>
+
+
+    <dependency>
+      <groupId>com.atomikos</groupId>
+      <artifactId>transactions-jdbc</artifactId>
+      <version>3.9.3</version>
     </dependency>
 
   </dependencies>

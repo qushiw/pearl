@@ -1,9 +1,10 @@
 package com.web.zookeeper;
 
+
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.ExponentialBackoffRetry;
-import org.apache.zookeeper.CreateMode;
+
 
 /**
  * @author qushiwen on 2017-09-19.
@@ -20,17 +21,24 @@ public class ZookeeperClientHold {
 
 
     public static void main(String[] args) {
-        curatorFramework.start();
-        try {
-            curatorFramework.create().creatingParentsIfNeeded().withMode(CreateMode.EPHEMERAL).forPath("/qsfs/qwe/qwe");
-            int i=0;
-            while (i > 5) {
-                System.out.println(i++);
-            }
-            Thread.sleep(50000);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        curatorFramework.start();
+//        try {
+//            curatorFramework.create().creatingParentsIfNeeded().withMode(CreateMode.EPHEMERAL).forPath("/qsfs/qwe/qwe");
+//            int i=0;
+//            while (i > 5) {
+//                System.out.println(i++);
+//            }
+//            Thread.sleep(50000);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//
+
+
+
+
+
     }
 
 

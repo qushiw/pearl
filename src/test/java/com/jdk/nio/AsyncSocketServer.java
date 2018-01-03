@@ -24,17 +24,17 @@ public class AsyncSocketServer {
 
     public static void main(String[] args) {
         final AsyncSocketServer asyncSocketServer = new AsyncSocketServer();
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
+//        Thread thread = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
                 try {
                     asyncSocketServer.accept();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }
-        });
-        thread.start();
+//            }
+//        });
+//        thread.start();
         asyncSocketServer.workTask();
 
     }

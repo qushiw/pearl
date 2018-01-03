@@ -1,6 +1,5 @@
 package com.web.common;
 
-import com.oracle.jrockit.jfr.EventDefinition;
 import com.web.common.webSocket.WebSocketSession;
 import com.web.common.webSocket.WebsocketPageHolder;
 import com.web.model.PageModel;
