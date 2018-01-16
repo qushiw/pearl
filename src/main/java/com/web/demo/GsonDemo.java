@@ -1,11 +1,14 @@
 package com.web.demo;
 
 
-import com.google.gson.JsonSyntaxException;
-import com.google.gson.reflect.TypeToken;
-import com.web.util.JsonUtil;
+import reactor.core.publisher.Flux;
 
-import java.util.Map;
+import javax.ws.rs.core.Link;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.function.Predicate;
+
 
 /**
 *
@@ -16,17 +19,47 @@ import java.util.Map;
 public class GsonDemo {
 
     public static void main(String[] args) {
-        String jsonData = "192.123.2.23";
-        try {
-            Map<String, Map<String, Map<String, Object>>> data =
-                    JsonUtil.fromJson(jsonData, new TypeToken<Map<String, Map<String, Map<String, Object>>>>(){});
+//
+//        Flux<Integer> flux = Flux.create(sink -> {
+//            for (int i=0;i<10;i++) {
+//                sink.next(i);
+//            }
+//            sink.complete();
+//        });
+//
+//
+//        flux.subscribe(System.out::print);
 
 
-        } catch (JsonSyntaxException e) {
-            System.out.println("json 串  解析出错");
+//        Flux.range(1,10).filter(i->i%2 == 0) .subscribe(System.out::print);
+//        Flux.just("a","b").zipWith(Flux.just("c","d")).subscribe(System.out::print);
+//        Flux.just("a","b").zipWith(Flux.just("c","d"),(s1,s2)->String.format("%s-%s:",s1,s2)).subscribe(System.out::print);
+//
+//
+//        List<Integer> list = new ArrayList<Integer>();
+//        list.add(1);
+//        list.add(2);
+//        list.add(3);
+//
+//
+//        Flux.fromIterable(list).flatMap((Integer integer) -> {
+//
+//        }).reduce(true, (ok1, ok2) -> {
+//
+//        })
+
+        LinkedList<Integer> linkedList = new LinkedList<Integer>();
+        linkedList.addLast(1);
+        linkedList.addLast(2);
+        linkedList.addLast(3);
+
+        Integer[] data = new Integer[linkedList.size()];
+
+        linkedList.toArray(data);
+
+        for (Integer i : data) {
+            System.out.println(i);
         }
-
-
     }
 
 
