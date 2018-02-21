@@ -1,12 +1,17 @@
 package com.web.demo;
 
+import io.netty.util.concurrent.CompleteFuture;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
 import javax.ejb.Schedule;
 import java.time.Duration;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.ServiceLoader;
 
 /**
@@ -18,36 +23,23 @@ import java.util.ServiceLoader;
 public class ClientDemo {
 
     public static void main(String[] args) throws Exception {
-//        ServiceLoader<LoadDemo> serviceLoader = ServiceLoader.load(LoadDemo.class);
-//        Iterator<LoadDemo> iterator = serviceLoader.iterator();
-//        LoadDemo loadDemo;
-//        while (iterator.hasNext()) {
-//            loadDemo = iterator.next();
-//            loadDemo.a();
-//        }
-//
-//        Flux<Long> flux = Flux.empty();
-//        final Flux<Long> source = null;
-//        ClientDemo clientDemo = new ClientDemo();
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                try {
-//                    clientDemo.test7(source);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }).start();
-//        Thread.sleep(5000);
-//        source.toStream().forEach(System.out :: println);
-//
-        String a = "/proxy/qsw_test_5/nodes";
+        
+        Integer[] data = new Integer[3];
+        data[0] = 1;
+        data[1] = 2;
 
-        String b = a.substring(0, a.lastIndexOf("/"));
-        System.out.println(b);
+        test8(data);
 
     }
+
+
+    public static void test8 (Object[] objects) {
+        Integer[] data = (Integer[]) objects;
+        for (Integer i : data) {
+            System.out.println(i);
+        }
+    }
+
 
 
 
