@@ -1,8 +1,6 @@
 package com.cdsDriver;
 
 import com.jdjr.cds.driver.CdsConfig4Cluster;
-import com.jdjr.cds.driver.rulebase.ClusterRuleBase;
-import com.jdjr.cds.driver.rulebase.ClusterRuleSupport;
 import org.testng.annotations.Test;
 
 import java.sql.Connection;
@@ -41,6 +39,11 @@ public class DriverJdbcTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println(4 >>> 1);
     }
 
 }

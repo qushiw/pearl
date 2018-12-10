@@ -1,6 +1,8 @@
 package com.web.demo.lambda;
 
 
+import java.util.Date;
+
 /**
 *
 * @author qushiwen
@@ -33,6 +35,8 @@ public class CallBackDemo {
             return proxyExecuteDemo;
         });
 
+
+        System.out.println(new Date().getTime());
 
 
     }
