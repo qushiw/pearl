@@ -14,8 +14,7 @@ import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import java.lang.reflect.Method;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.Callable;
 
 import static net.bytebuddy.matcher.ElementMatchers.named;
@@ -49,7 +48,7 @@ public class Demo {
         ExecuteObject executeInterface = (ExecuteObject)proxyClass.newInstance();
         executeInterface.a();*/
 
-        MemoryDatabase loggingDatabase = new ByteBuddy()
+/*        MemoryDatabase loggingDatabase = new ByteBuddy()
                 .subclass(MemoryDatabase.class)
                 .method(named("load")).intercept(MethodDelegation.to(LoggerInterceptor.class))
                 .make()
@@ -57,8 +56,54 @@ public class Demo {
                 .getLoaded()
                 .newInstance();
         List<String> list = loggingDatabase.load("load test");
-        System.out.println(list);
+        System.out.println(list);*/
+
+        int[] data = new int[10];
+        data[0] = 1;
+        data[1] = 2;
+        data[2] = 3;
+
+        System.out.println(containsDuplicate(data));
     }
+
+    public static boolean containsDuplicate(int[] nums) {
+        if (nums == null) {
+            return false;
+        }
+
+        if (nums.length == 0) {
+            return false;
+        }
+
+        for (int i=0; i<nums.length; i++) {
+            for (int j=(i+1); j<nums.length; j++) {
+                if (nums[i] == nums[j]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    public static boolean containsDuplicate2(int[] nums) {
+        if (nums == null) {
+            return false;
+        }
+
+        if (nums.length == 0) {
+            return false;
+        }
+        Set set = new HashSet();
+        for (int i=0; i<nums.length; i++) {
+            if (set.contains(nums[i])) {
+                return true;
+            } else {
+                set.add(nums[i]);
+            }
+        }
+        return false;
+    }
+
+
 
     public class MemoryDatabase {
         public List<String> load(String info) {

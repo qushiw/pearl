@@ -11,9 +11,9 @@ public class ClassLoaderClient {
 
         MineClassLoader mineClassLoader = new MineClassLoader("/home/qushiwen/temp/");
 
-        Class clazz = mineClassLoader.loadClass("com.web.demo.java.classLoader.ClassLoaderTest", true);
-        ClassLoaderTest classLoaderTest =  (ClassLoaderTest)clazz.newInstance();
-        classLoaderTest.a();
+//        Class clazz = mineClassLoader.loadClass("com.web.demo.java.classLoader.ClassLoaderTest", true);
+//        ClassLoaderTest classLoaderTest =  (ClassLoaderTest)clazz.newInstance();
+//        classLoaderTest.a();
     }
 
 

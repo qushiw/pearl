@@ -12,8 +12,35 @@
 	<context:property-placeholder location="classpath:/META-INF/dbconfig.properties"/>
 	<context:annotation-config/>
 
-	<import resource="applicationContext-db.xml"/>
-	<import resource="applicationContext-net.xml"/>
-	<import resource="applicationContext-bean.xml"/>
+	<!--<bean id = "abean" class="com.web.spring.Abean" scope="singleton"/>-->
+	<!--<import resource="applicationContext-db.xml"/>-->
+	<!--<import resource="applicationContext-net.xml"/>-->
+	<!--<import resource="applicationContext-bean.xml"/>-->
 	<!--<import resource="applicationContext-mvc.xml"/>-->
+
+
+	<bean id="targetClass" class="com.web.spring.aop.TargetClass"/>
+	<bean id="myAdvice" class="com.web.spring.aop.MyBeforeAdvice"/>
+	<bean id="myAfterAdvice" class="com.web.spring.aop.MyAfterAdvice"/>
+	<bean id="myAspect" class="com.web.spring.aop.MyAspect"/>
+
+	<bean id="targetClassProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="targetClass"/>
+		<property name="proxyInterfaces" value="com.web.spring.aop.TargetClassInterFace"/>
+		<property name="interceptorNames" value="myAdvice,myAfterAdvice"/>
+	</bean>
+
+
+
+	<!--拖过AOP配置完成对目标类产生代理-->
+<!--	<aop:config>
+		&lt;!&ndash;expression:表达式配置哪些类的那些方法需要进行增强  *:任意返回值 ..:任意参数 &ndash;&gt;
+		<aop:pointcut id="pointcut1" expression="execution(*  com.web.spring.aop.TargetClass.test(..))"/>
+		&lt;!&ndash;配置切面&ndash;&gt;
+		<aop:aspect ref="myAspect">
+			<aop:before method="myAspect" pointcut-ref="pointcut1"/>
+			<aop:after method="myAspect" pointcut-ref="pointcut1"/>
+		</aop:aspect>
+	</aop:config>-->
+
 </beans>

@@ -22,8 +22,8 @@ public class DruidController {
 
     private ModelTest modelTest;
 
-    @Autowired
-    private DruidDataSource druidDataSource;
+/*    @Autowired
+    private DruidDataSource druidDataSource;*/
 
     @RequestMapping("/db.do")
     public ModelAndView test(){

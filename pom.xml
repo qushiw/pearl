@@ -10,7 +10,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <spring.version>5.0.4.RELEASE</spring.version>
+    <spring.version>5.1.7.RELEASE</spring.version>
     <jersey.version>2.9</jersey.version>
     <netty.version>5.0.0.Alpha1</netty.version>
     <zookeeper.version>3.4.6</zookeeper.version>
@@ -117,12 +117,6 @@
       <artifactId>spring-jdbc</artifactId>
       <version>${spring.version}</version>
     </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-test</artifactId>
-      <version>${spring.version}</version>
-      <scope>test</scope>
-    </dependency>
 
     <!-- serialize -->
     <dependency>
@@ -198,6 +192,13 @@
       </exclusions>
     </dependency>
 
+    <!-- sentinel -->
+    <dependency>
+      <groupId>com.alibaba.csp</groupId>
+      <artifactId>sentinel-core</artifactId>
+      <version>1.5.1</version>
+    </dependency>
+
     <!-- netty -->
     <dependency>
       <groupId>io.netty</groupId>
@@ -253,7 +254,7 @@
       <version>2.9.1</version>
     </dependency>
 
-    <!-- tomcat servlet -->
+    <!-- tomcat servlet --> j
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
@@ -357,7 +358,7 @@
       <version>4.12</version>
     </dependency>
 
-<!--    <dependency>
+    <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-api</artifactId>
       <version>2.11.1</version>
@@ -366,14 +367,26 @@
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-core</artifactId>
       <version>2.11.1</version>
-    </dependency>-->
+    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>org.apache.logging.log4j</groupId>-->
+      <!--<artifactId>log4j-slf4j-impl</artifactId>-->
+      <!--<version>2.11.1</version>-->
+    <!--</dependency>-->
+
+
+    <!-- disruptor  -->
     <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-slf4j-impl</artifactId>
-      <version>2.11.1</version>
+      <groupId>com.lmax</groupId>
+      <artifactId>disruptor</artifactId>
+      <version>3.4.2</version>
     </dependency>
 
-
+    <dependency>
+      <groupId>org.apache.shardingsphere</groupId>
+      <artifactId>sharding-jdbc-core</artifactId>
+      <version>4.0.0.M1-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 
 
