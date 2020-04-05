@@ -13,7 +13,7 @@
     <spring.version>5.1.7.RELEASE</spring.version>
     <jersey.version>2.9</jersey.version>
     <netty.version>5.0.0.Alpha1</netty.version>
-    <zookeeper.version>3.4.6</zookeeper.version>
+    <zookeeper.version>3.4.14</zookeeper.version>
     <jackson.version>1.9.13</jackson.version>
     <!--<netty3.version>3.9.0.Final</netty3.version>-->
   </properties>
