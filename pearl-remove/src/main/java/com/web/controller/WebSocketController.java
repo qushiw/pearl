@@ -25,7 +25,7 @@ public class WebSocketController {
     @RequestMapping("/sendMesage.do")
     public void sendMessage(String id){
         PageModel pageModel = websocketPageHolder.get(id);
-        try {
+        /*try {
             WebSocketSession webSocketSession = pageModel.getWebSocketSession();
             WsOutbound wsOutbound = webSocketSession.getWsOutbound();
             WsOutbound wsOutbound1 = pageModel.getWsOutbound();
@@ -39,7 +39,7 @@ public class WebSocketController {
 
         } catch ( IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
 

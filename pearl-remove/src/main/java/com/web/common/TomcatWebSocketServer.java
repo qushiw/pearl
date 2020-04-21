@@ -58,7 +58,7 @@ public class TomcatWebSocketServer extends WebSocketServlet{
             protected void onTextMessage(CharBuffer charBuffer) throws IOException {
                 String id = charBuffer.toString();
                 PageModel pageModel = new PageModel();
-                pageModel.setWebSocketSession(webSocketSession);
+//                pageModel.setWebSocketSession(webSocketSession);
                 pageModel.setId(id);
                 pageModel.setWsOutbound(wsOutbound);
 //                pageModel.setUrl(httpServletRequest.getRequestURI());
