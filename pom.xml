@@ -11,6 +11,7 @@
   <modules>
       <module>pearl-remove</module>
       <module>pearl-ssm</module>
+      <module>pearl-basics</module>
   </modules>
   <name>test Maven Webapp</name>
 
@@ -23,7 +24,7 @@
     <netty.version>5.0.0.Alpha1</netty.version>
     <zookeeper.version>3.4.6</zookeeper.version>
     <jackson.version>1.9.13</jackson.version>
-    <!--<netty3.version>3.9.0.Final</netty3.version>-->
+    <guava.version>18.0</guava.version>
   </properties>
 
 
@@ -316,7 +317,7 @@
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>16.0</version>
+      <version>${guava.version}</version>
     </dependency>
 
 
