@@ -1,5 +1,6 @@
 package com.web.model;
 
+import com.web.common.webSocket.WebSocketSession;
 import org.apache.catalina.websocket.WsOutbound;
 
 /**
@@ -11,6 +12,7 @@ public class PageModel {
 
     private WsOutbound wsOutbound;
 
+    private WebSocketSession webSocketSession;
 
     private String url;
 
@@ -42,4 +44,12 @@ public class PageModel {
     }
 
 
+    public WebSocketSession getWebSocketSession() {
+        return webSocketSession;
+    }
+
+
+    public void setWebSocketSession(WebSocketSession webSocketSession) {
+        this.webSocketSession = webSocketSession;
+    }
 }
