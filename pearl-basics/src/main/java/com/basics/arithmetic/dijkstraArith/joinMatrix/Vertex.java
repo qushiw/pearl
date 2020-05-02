@@ -1,8 +1,6 @@
-package com.basics.arithmetic.dijkstraArith;
+package com.basics.arithmetic.dijkstraArith.joinMatrix;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 /**
  * @author jrqushiwen

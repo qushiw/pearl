@@ -1,6 +1,5 @@
-package com.basics.arithmetic.dijkstraArith;
+package com.basics.arithmetic.dijkstraArith.joinMatrix;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 

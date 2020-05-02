@@ -1,4 +1,4 @@
-package com.basics.arithmetic.dijkstraArith;
+package com.basics.arithmetic.dijkstraArith.joinMatrix;
 
 import java.util.*;
 
