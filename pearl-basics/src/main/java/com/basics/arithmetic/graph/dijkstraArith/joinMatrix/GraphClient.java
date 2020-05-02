@@ -1,4 +1,4 @@
-package com.basics.arithmetic.dijkstraArith.joinMatrix;
+package com.basics.arithmetic.graph.dijkstraArith.joinMatrix;
 
 import java.util.LinkedList;
 import java.util.List;

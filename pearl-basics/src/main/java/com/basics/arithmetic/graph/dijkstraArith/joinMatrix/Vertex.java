@@ -1,4 +1,4 @@
-package com.basics.arithmetic.dijkstraArith.joinMatrix;
+package com.basics.arithmetic.graph.dijkstraArith.joinMatrix;
 
 import lombok.Data;
 
