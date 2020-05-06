@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+         http://www.springframework.org/schema/aop
+         http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <bean id="targetObject" class="com.ssm.Server.spring.aop.TargetObject"></bean>
+
+    <bean id="aop" class="com.ssm.Server.spring.aop.AspectObject"></bean>
+
+
+    <aop:config>
+        <aop:pointcut expression="execution(* com.ssm.Server.spring.aop.TargetObject.*(..))" id="pt"/>
+        <aop:aspect id="asp" ref="aop">
+            <aop:before method="around" pointcut-ref="pt"/>
+            <aop:after method="around" pointcut-ref="pt"/>
+            <!--<aop:around method="around" pointcut-ref="pt"/>-->
+        </aop:aspect>
+    </aop:config>
+
+</beans>

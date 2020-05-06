@@ -15,13 +15,13 @@
     <!--<import resource="datasource.xml"/>-->
 
     <bean id="a" class="com.ssm.Server.spring.ioc.AObject" lazy-init="false">
-        <!--<property ref="b" name="bObject"/>-->
-        <constructor-arg ref="b"/>
+        <property ref="b" name="bObject"/>
+        <!--<constructor-arg ref="b"/>-->
     </bean>
 
     <bean id="b" class="com.ssm.Server.spring.ioc.BObject" lazy-init="false">
-        <!--<property ref="a" name="aObject"/>-->
-        <constructor-arg ref="a" name="aObject"/>
+        <property ref="a" name="aObject"/>
+        <!--<constructor-arg ref="a" name="aObject"/>-->
     </bean>
 
 </beans>
