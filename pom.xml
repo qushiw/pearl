@@ -196,32 +196,6 @@
       <version>${jersey.version}</version>
     </dependency>
 
-    <!-- cds -->
-    <dependency>
-      <groupId>com.jd.jr</groupId>
-      <artifactId>jdcds-driver-alg</artifactId>
-      <version>2.20.6</version>
-      <scope>provided</scope>
-      <exclusions>
-        <exclusion>
-          <groupId>com.jd.jr</groupId>
-          <artifactId>jdcds-driver</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-
-    <dependency>
-      <groupId>com.jd.jr</groupId>
-      <artifactId>jdcds-driver</artifactId>
-      <version>3.7.2</version>
-    </dependency>
-
-    <dependency>
-      <groupId>com.jd.jr</groupId>
-      <artifactId>jdcds-driver-ext</artifactId>
-      <version>3.7.2-SNAPSHOT</version>
-    </dependency>
-
     <!-- sentinel -->
     <dependency>
       <groupId>com.alibaba.csp</groupId>
