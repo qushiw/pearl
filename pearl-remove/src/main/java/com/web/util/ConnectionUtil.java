@@ -60,7 +60,6 @@ public class ConnectionUtil {
 
             Connection connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:8307/qsw_test_2?user=qsw_ha_app_test&password=123456");
             String strSql = "insert into a(name2) values(76, 'q')";
-//            Connection connection = DriverManager.getConnection("jdbc:mysql://10.9.3.234:3309/jpetstore_dst?user=root&password=123456&useCursorFetch=true");
 //            connection.setAutoCommit(false);
             Statement statement = connection.createStatement();
             statement.executeUpdate(strSql,Statement.RETURN_GENERATED_KEYS);
@@ -103,23 +102,7 @@ public class ConnectionUtil {
 
 
     private void mysqlPrepareExecute() {
-        try {
-            String selectSql = "SELECT supplier, status FROM item WHERE itemid = ?";
-            String insertSql = "insert into item(itemid, productid, listprice, unitcost, supplier, status, attr1, attr2, attr3, attr4, attr5) " +
-                    "values (?,'q','1','1','1','q','q','q','q','q','q')";
-            Connection connection = DriverManager.getConnection("jdbc:mysql://10.9.3.234:3309/jpetstore_dst?user=root&password=123456&useServerPrepStmts=true");
-//            connection.setAutoCommit(false);
-            PreparedStatement preparedStatement = connection.prepareStatement(insertSql);
-//            preparedStatement.setFetchSize(3);
-            preparedStatement.setString(1, "999");
-            int resultSet = preparedStatement.executeUpdate();
-//            while (resultSet.next()) {
-//                System.out.println("value : " + resultSet.getString("supplier") + "," + resultSet.getString("status"));
-//            }
-//            connection.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
 
 
